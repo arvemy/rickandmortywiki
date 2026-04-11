@@ -2,6 +2,8 @@
 
 A responsive Rick and Morty wiki built with React, Vite, Tailwind CSS, and React Router. The app uses live data from The Rick and Morty API to browse characters, episodes, and locations with search, filtering, pagination, and detail pages.
 
+Live app: https://rickandmortywiki-rose.vercel.app/
+
 ## Features
 
 - Home page with a short introduction and fast navigation into the main sections.
