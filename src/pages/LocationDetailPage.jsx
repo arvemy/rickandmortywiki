@@ -1,4 +1,3 @@
-import { ViewTransition } from 'react'
 import { useParams } from 'react-router-dom'
 import { getLocationById, getCharactersByIds, extractIds } from '../services/api'
 import useFetch from '../hooks/useFetch'
@@ -29,17 +28,11 @@ export default function LocationDetailPage() {
   })
 
   return (
-    <ViewTransition
-      enter={{ 'nav-forward': 'nav-forward', 'nav-back': 'nav-back', default: 'none' }}
-      exit={{ 'nav-forward': 'nav-forward', 'nav-back': 'nav-back', default: 'none' }}
-      default="none"
-    >
-      <div className="mx-auto max-w-5xl px-4 py-8">
-        {loading ? <LoadingSpinner className="min-h-[90vh]" /> :
-         error ? <ErrorMessage message={error} onRetry={retry} /> :
-         data ? <LocationDetail data={data} /> : null}
-      </div>
-    </ViewTransition>
+    <div className="mx-auto max-w-5xl px-4 py-8">
+      {loading ? <LoadingSpinner className="min-h-[90vh]" /> :
+       error ? <ErrorMessage message={error} onRetry={retry} /> :
+       data ? <LocationDetail data={data} /> : null}
+    </div>
   )
 }
 

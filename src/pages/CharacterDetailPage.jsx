@@ -1,4 +1,3 @@
-import { ViewTransition } from 'react'
 import { useParams } from 'react-router-dom'
 import { getCharacterById, getEpisodesByIds, extractId, extractIds } from '../services/api'
 import useFetch from '../hooks/useFetch'
@@ -29,17 +28,11 @@ export default function CharacterDetailPage() {
   })
 
   return (
-    <ViewTransition
-      enter={{ 'nav-forward': 'nav-forward', 'nav-back': 'nav-back', default: 'none' }}
-      exit={{ 'nav-forward': 'nav-forward', 'nav-back': 'nav-back', default: 'none' }}
-      default="none"
-    >
-      <div className="mx-auto max-w-4xl px-4 py-8">
-        {loading ? <LoadingSpinner className="min-h-[90vh]" /> :
-         error ? <ErrorMessage message={error} onRetry={retry} /> :
-         data ? <CharacterDetail data={data} /> : null}
-      </div>
-    </ViewTransition>
+    <div className="mx-auto max-w-4xl px-4 py-8">
+      {loading ? <LoadingSpinner className="min-h-[90vh]" /> :
+       error ? <ErrorMessage message={error} onRetry={retry} /> :
+       data ? <CharacterDetail data={data} /> : null}
+    </div>
   )
 }
 
@@ -71,17 +64,15 @@ function CharacterDetail({ data }) {
 
       <div className={`relative overflow-hidden rounded-xl border border-border-glass border-l-[3px] ${borderCls} bg-surface-glass backdrop-blur-sm md:flex`}>
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(57,231,95,0.04)_0%,transparent_60%)]" />
-        <ViewTransition name={`char-img-${character.id}`} share="morph" default="none">
-          <img
-            src={imageSrc}
-            alt={character.name}
-            width={300}
-            height={300}
-            fetchPriority="high"
-            sizes="(min-width: 768px) 18rem, 100vw"
-            className="relative h-80 w-full object-cover md:h-auto md:w-72"
-          />
-        </ViewTransition>
+        <img
+          src={imageSrc}
+          alt={character.name}
+          width={300}
+          height={300}
+          fetchPriority="high"
+          sizes="(min-width: 768px) 18rem, 100vw"
+          className="relative h-80 w-full object-cover md:h-auto md:w-72"
+        />
         <div className="relative flex-1 p-6">
           <h1 className="font-display text-3xl font-bold tracking-tight">{character.name}</h1>
           <div className="mt-2">

@@ -1,4 +1,4 @@
-import { startTransition, addTransitionType } from 'react'
+import { startTransition } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 export default function TransitionLink({
@@ -32,7 +32,6 @@ export default function TransitionLink({
     event.preventDefault()
 
     startTransition(() => {
-      types.forEach(type => addTransitionType(type))
       navigate(to)
     })
   }

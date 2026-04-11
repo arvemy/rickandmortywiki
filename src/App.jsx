@@ -1,5 +1,5 @@
 import { Outlet, useLocation } from 'react-router-dom'
-import { Suspense, useEffect, ViewTransition } from 'react'
+import { Suspense, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import LoadingSpinner from './components/LoadingSpinner'
@@ -22,14 +22,8 @@ export default function App() {
       </a>
       <Navbar />
       <main id="main-content" tabIndex={-1} className="flex-1">
-        <Suspense fallback={
-          <ViewTransition exit="slide-down">
-            <LoadingSpinner />
-          </ViewTransition>
-        }>
-          <ViewTransition enter="slide-up" default="none">
-            <Outlet />
-          </ViewTransition>
+        <Suspense fallback={<LoadingSpinner />}>
+          <Outlet />
         </Suspense>
       </main>
       <Footer />

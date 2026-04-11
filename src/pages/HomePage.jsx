@@ -1,4 +1,3 @@
-import { ViewTransition } from 'react'
 import TransitionLink from '../components/TransitionLink'
 import { getCharacters, getEpisodes, getLocations } from '../services/api'
 import useFetch from '../hooks/useFetch'
@@ -117,12 +116,7 @@ export default function HomePage() {
   const displayStats = stats ?? defaultStats
 
   return (
-    <ViewTransition
-      enter={{ 'nav-forward': 'nav-forward', 'nav-back': 'nav-back', default: 'none' }}
-      exit={{ 'nav-forward': 'nav-forward', 'nav-back': 'nav-back', default: 'none' }}
-      default="none"
-    >
-      <div>
+    <div>
         {/* Hero */}
         <section className="relative overflow-hidden px-4 py-24 text-center sm:py-32">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(57,231,95,0.08)_0%,transparent_50%)]" />
@@ -198,7 +192,6 @@ export default function HomePage() {
             ))}
           </div>
         </section>
-      </div>
-    </ViewTransition>
+    </div>
   )
 }

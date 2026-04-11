@@ -1,4 +1,4 @@
-import { startTransition, ViewTransition } from 'react'
+import { startTransition } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { getEpisodes } from '../services/api'
 import useFetch from '../hooks/useFetch'
@@ -60,12 +60,7 @@ export default function EpisodesPage() {
   const seasonGroups = data ? groupBySeason(data.results) : []
 
   return (
-    <ViewTransition
-      enter={{ 'nav-forward': 'nav-forward', 'nav-back': 'nav-back', default: 'none' }}
-      exit={{ 'nav-forward': 'nav-forward', 'nav-back': 'nav-back', default: 'none' }}
-      default="none"
-    >
-      <div className="mx-auto max-w-5xl px-4 py-8">
+    <div className="mx-auto max-w-5xl px-4 py-8">
         <h1 className="mb-6 font-display text-3xl font-bold tracking-tight" style={{ textWrap: 'balance' }}>Episodes</h1>
 
         <div className="mb-8 max-w-md">
@@ -95,11 +90,9 @@ export default function EpisodesPage() {
                 <h2 className="mb-3 font-display text-lg font-semibold tracking-tight text-electric-blue">{season}</h2>
                 <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {eps.map((ep, i) => (
-                    <ViewTransition key={ep.id} enter="fade-in" exit="fade-out" default="none">
-                      <div className="animate-card-enter" style={{ animationDelay: `${i * 50}ms` }}>
-                        <EpisodeCard episode={ep} />
-                      </div>
-                    </ViewTransition>
+                    <div key={ep.id} className="animate-card-enter" style={{ animationDelay: `${i * 50}ms` }}>
+                      <EpisodeCard episode={ep} />
+                    </div>
                   ))}
                 </div>
               </div>
@@ -111,7 +104,6 @@ export default function EpisodesPage() {
             />
           </>
         ) : null}
-      </div>
-    </ViewTransition>
+    </div>
   )
 }

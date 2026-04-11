@@ -1,4 +1,3 @@
-import { ViewTransition } from 'react'
 import TransitionLink from '../components/TransitionLink'
 import usePageMeta from '../hooks/usePageMeta'
 
@@ -10,12 +9,7 @@ export default function NotFoundPage() {
   })
 
   return (
-    <ViewTransition
-      enter={{ 'nav-forward': 'nav-forward', 'nav-back': 'nav-back', default: 'none' }}
-      exit={{ 'nav-forward': 'nav-forward', 'nav-back': 'nav-back', default: 'none' }}
-      default="none"
-    >
-      <div className="flex flex-col items-center justify-center px-4 py-32 text-center">
+    <div className="flex flex-col items-center justify-center px-4 py-32 text-center">
         {/* Animated portal rings */}
         <div className="relative mb-8 h-32 w-32">
           <div className="absolute inset-0 rounded-full border-2 border-portal-green/30 animate-[spin-slow_4s_linear_infinite]" />
@@ -40,7 +34,6 @@ export default function NotFoundPage() {
         >
           Go Back Home
         </TransitionLink>
-      </div>
-    </ViewTransition>
+    </div>
   )
 }

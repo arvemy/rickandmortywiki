@@ -1,4 +1,4 @@
-import { startTransition, ViewTransition } from 'react'
+import { startTransition } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { getLocations } from '../services/api'
 import useFetch from '../hooks/useFetch'
@@ -44,12 +44,7 @@ export default function LocationsPage() {
   }
 
   return (
-    <ViewTransition
-      enter={{ 'nav-forward': 'nav-forward', 'nav-back': 'nav-back', default: 'none' }}
-      exit={{ 'nav-forward': 'nav-forward', 'nav-back': 'nav-back', default: 'none' }}
-      default="none"
-    >
-      <div className="mx-auto max-w-5xl px-4 py-8">
+    <div className="mx-auto max-w-5xl px-4 py-8">
         <h1 className="mb-6 font-display text-3xl font-bold tracking-tight" style={{ textWrap: 'balance' }}>Locations</h1>
 
         <div className="mb-8 max-w-md">
@@ -76,11 +71,9 @@ export default function LocationsPage() {
             <p className="mb-4 text-sm text-gray-400">{formatNumber(data.info.count)} locations found</p>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {data.results.map((loc, i) => (
-                <ViewTransition key={loc.id} enter="fade-in" exit="fade-out" default="none">
-                  <div className="animate-card-enter" style={{ animationDelay: `${i * 50}ms` }}>
-                    <LocationCard location={loc} />
-                  </div>
-                </ViewTransition>
+                <div key={loc.id} className="animate-card-enter" style={{ animationDelay: `${i * 50}ms` }}>
+                  <LocationCard location={loc} />
+                </div>
               ))}
             </div>
             <Pagination
@@ -90,7 +83,6 @@ export default function LocationsPage() {
             />
           </>
         ) : null}
-      </div>
-    </ViewTransition>
+    </div>
   )
 }
