@@ -8,7 +8,7 @@ export function getOptimizedImageUrl(src, {
   if (!src) return ''
 
   const params = new URLSearchParams({
-    url: src.replace(/^https?:\/\//, ''),
+    url: src,
     w: String(width),
     q: String(quality),
     output: format,

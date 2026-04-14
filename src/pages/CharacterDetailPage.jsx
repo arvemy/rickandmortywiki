@@ -5,6 +5,7 @@ import TransitionLink from '../components/TransitionLink'
 import StatusBadge from '../components/StatusBadge'
 import LoadingSpinner from '../components/LoadingSpinner'
 import ErrorMessage from '../components/ErrorMessage'
+import FallbackImage from '../components/FallbackImage'
 import usePageMeta from '../hooks/usePageMeta'
 import { getOptimizedImageUrl } from '../services/media'
 import { formatNumber } from '../utils/formatters'
@@ -64,8 +65,9 @@ function CharacterDetail({ data }) {
 
       <div className={`relative overflow-hidden rounded-xl border border-border-glass border-l-[3px] ${borderCls} bg-surface-glass backdrop-blur-sm md:flex`}>
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(57,231,95,0.04)_0%,transparent_60%)]" />
-        <img
+        <FallbackImage
           src={imageSrc}
+          fallbackSrc={character.image}
           alt={character.name}
           width={300}
           height={300}

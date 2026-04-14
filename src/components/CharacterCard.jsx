@@ -1,5 +1,6 @@
 import TransitionLink from './TransitionLink'
 import StatusBadge from './StatusBadge'
+import FallbackImage from './FallbackImage'
 import { getOptimizedImageUrl } from '../services/media'
 
 export default function CharacterCard({ character, priority = false }) {
@@ -12,8 +13,9 @@ export default function CharacterCard({ character, priority = false }) {
       className="group relative overflow-hidden rounded-xl border border-border-glass bg-surface-glass backdrop-blur-sm transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-portal-green/20 hover:shadow-[0_0_30px_rgba(57,231,95,0.08)] focus-visible:ring-2 focus-visible:ring-electric-blue focus-visible:outline-none"
     >
       <div className="relative overflow-hidden">
-        <img
+        <FallbackImage
           src={imageSrc}
+          fallbackSrc={character.image}
           alt={character.name}
           width={300}
           height={300}
