@@ -2,6 +2,7 @@ import TransitionLink from './TransitionLink'
 import StatusBadge from './StatusBadge'
 import FallbackImage from './FallbackImage'
 import { getOptimizedImageUrl } from '../services/media'
+import { formatLabel } from '../utils/formatters'
 
 export default function CharacterCard({ character, priority = false }) {
   const imageSrc = getOptimizedImageUrl(character.image, { width: priority ? 760 : 600 })
@@ -33,7 +34,7 @@ export default function CharacterCard({ character, priority = false }) {
         </p>
         <div className="mt-2 flex items-center gap-2">
           <StatusBadge status={character.status} />
-          <span className="text-sm text-gray-400">{character.species}</span>
+          <span className="text-sm text-gray-400">{formatLabel(character.species)}</span>
         </div>
       </div>
     </TransitionLink>

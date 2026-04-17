@@ -1,4 +1,5 @@
 import TransitionLink from './TransitionLink'
+import { formatLabel } from '../utils/formatters'
 
 export default function LocationCard({ location }) {
   return (
@@ -11,9 +12,9 @@ export default function LocationCard({ location }) {
         {location.name}
       </p>
       <p className="mt-2 inline-block rounded bg-portal-green/10 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.15em] text-portal-green/70">
-        {location.type}
+        {formatLabel(location.type)}
       </p>
-      <p className="mt-1.5 truncate text-xs text-gray-400">{location.dimension}</p>
+      <p className="mt-1.5 truncate text-xs text-gray-400">{formatLabel(location.dimension)}</p>
     </TransitionLink>
   )
 }

@@ -9,7 +9,7 @@ import LoadingSpinner from '../components/LoadingSpinner'
 import ErrorMessage from '../components/ErrorMessage'
 import EmptyState from '../components/EmptyState'
 import usePageMeta from '../hooks/usePageMeta'
-import { formatNumber } from '../utils/formatters'
+import { formatLabel, formatNumber } from '../utils/formatters'
 
 const STATUS_OPTIONS = ['', 'Alive', 'Dead', 'unknown']
 const GENDER_OPTIONS = ['', 'Male', 'Female', 'Genderless', 'unknown']
@@ -75,7 +75,7 @@ export default function CharactersPage() {
           >
             <option value="">All Statuses</option>
             {STATUS_OPTIONS.filter(Boolean).map(s => (
-              <option key={s} value={s}>{s}</option>
+              <option key={s} value={s}>{formatLabel(s)}</option>
             ))}
           </select>
           <label className="sr-only" htmlFor="gender-filter">Filter by gender</label>
@@ -89,7 +89,7 @@ export default function CharactersPage() {
           >
             <option value="">All Genders</option>
             {GENDER_OPTIONS.filter(Boolean).map(g => (
-              <option key={g} value={g}>{g}</option>
+              <option key={g} value={g}>{formatLabel(g)}</option>
             ))}
           </select>
         </div>

@@ -1,3 +1,5 @@
+import { formatLabel } from '../utils/formatters'
+
 const colors = {
   Alive: 'bg-emerald-500/15 text-emerald-200',
   Dead: 'bg-rose-500/15 text-rose-200',
@@ -12,7 +14,7 @@ export default function StatusBadge({ status }) {
       <span
         className={`inline-block h-1.5 w-1.5 rounded-full bg-current ${isAlive ? 'animate-[pulse-dot_2s_ease-in-out_infinite]' : ''}`}
       />
-      {status}
+      {formatLabel(status)}
     </span>
   )
 }

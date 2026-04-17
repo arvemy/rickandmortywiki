@@ -8,7 +8,7 @@ import ErrorMessage from '../components/ErrorMessage'
 import FallbackImage from '../components/FallbackImage'
 import usePageMeta from '../hooks/usePageMeta'
 import { getOptimizedImageUrl } from '../services/media'
-import { formatNumber } from '../utils/formatters'
+import { formatLabel, formatNumber } from '../utils/formatters'
 
 export default function CharacterDetailPage() {
   const { id } = useParams()
@@ -84,16 +84,16 @@ function CharacterDetail({ data }) {
           <dl className="mt-6 grid grid-cols-2 gap-4 text-sm">
             <div>
               <dt className="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400">Species</dt>
-              <dd className="mt-1 text-gray-200">{character.species}</dd>
+              <dd className="mt-1 text-gray-200">{formatLabel(character.species)}</dd>
             </div>
             <div>
               <dt className="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400">Gender</dt>
-              <dd className="mt-1 text-gray-200">{character.gender}</dd>
+              <dd className="mt-1 text-gray-200">{formatLabel(character.gender)}</dd>
             </div>
             {character.type && (
               <div>
                 <dt className="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400">Type</dt>
-                <dd className="mt-1 text-gray-200">{character.type}</dd>
+                <dd className="mt-1 text-gray-200">{formatLabel(character.type)}</dd>
               </div>
             )}
             <div>
@@ -101,10 +101,10 @@ function CharacterDetail({ data }) {
               <dd className="mt-1">
                 {originId && character.origin.name !== 'unknown' ? (
                   <TransitionLink to={`/locations/${originId}`} types={['nav-forward']} className="text-electric-blue transition-colors hover:text-electric-blue-dim hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue rounded">
-                    {character.origin.name}
+                    {formatLabel(character.origin.name)}
                   </TransitionLink>
                 ) : (
-                  <span className="text-gray-400">{character.origin.name}</span>
+                  <span className="text-gray-400">{formatLabel(character.origin.name)}</span>
                 )}
               </dd>
             </div>
@@ -113,10 +113,10 @@ function CharacterDetail({ data }) {
               <dd className="mt-1">
                 {locationId && character.location.name !== 'unknown' ? (
                   <TransitionLink to={`/locations/${locationId}`} types={['nav-forward']} className="text-electric-blue transition-colors hover:text-electric-blue-dim hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue rounded">
-                    {character.location.name}
+                    {formatLabel(character.location.name)}
                   </TransitionLink>
                 ) : (
-                  <span className="text-gray-400">{character.location.name}</span>
+                  <span className="text-gray-400">{formatLabel(character.location.name)}</span>
                 )}
               </dd>
             </div>

@@ -12,3 +12,7 @@ export function formatDate(value) {
   const parsed = new Date(value)
   return Number.isNaN(parsed.getTime()) ? value : dateFormatter.format(parsed)
 }
+
+export function formatLabel(value) {
+  return value === 'unknown' ? 'Unknown' : String(value ?? '')
+}

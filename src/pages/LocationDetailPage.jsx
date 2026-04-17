@@ -7,7 +7,7 @@ import ErrorMessage from '../components/ErrorMessage'
 import CharacterMiniCard from '../components/CharacterMiniCard'
 import EmptyState from '../components/EmptyState'
 import usePageMeta from '../hooks/usePageMeta'
-import { formatNumber } from '../utils/formatters'
+import { formatLabel, formatNumber } from '../utils/formatters'
 
 export default function LocationDetailPage() {
   const { id } = useParams()
@@ -61,13 +61,13 @@ function LocationDetail({ data }) {
               <dt className="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400">Type</dt>
               <dd className="mt-0.5">
                 <span className="inline-block rounded-md bg-portal-green/10 px-2 py-0.5 text-xs font-medium text-portal-green">
-                  {location.type}
+                  {formatLabel(location.type)}
                 </span>
               </dd>
             </div>
             <div>
               <dt className="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400">Dimension</dt>
-              <dd className="mt-0.5 text-gray-200">{location.dimension}</dd>
+              <dd className="mt-0.5 text-gray-200">{formatLabel(location.dimension)}</dd>
             </div>
           </dl>
         </div>
