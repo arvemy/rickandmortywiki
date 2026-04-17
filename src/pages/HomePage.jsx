@@ -4,6 +4,7 @@ import useFetch from '../hooks/useFetch'
 import usePageMeta from '../hooks/usePageMeta'
 import charactersIcon from '../assets/characters.svg'
 import episodesIcon from '../assets/episodes.svg'
+import locationsIcon from '../assets/locations.png'
 import rickAndMortyWikiLogo from '../assets/rickandmortywiki.webp'
 import { formatNumber } from '../utils/formatters'
 
@@ -45,16 +46,16 @@ function EpisodeGlyph() {
   )
 }
 
-function PortalGlyph() {
+function LocationGlyph() {
   return (
-    <span
+    <img
+      src={locationsIcon}
+      alt=""
       aria-hidden="true"
-      className="relative block h-10 w-10 rounded-full bg-portal-green/10 shadow-[0_0_20px_rgba(57,231,95,0.22)]"
-    >
-      <span className="absolute inset-1 rounded-full border-2 border-portal-green/70 border-t-electric-blue/80 animate-spin" />
-      <span className="absolute inset-3 rounded-full border border-electric-blue/70 border-b-portal-green/80 animate-[spin-reverse_1.8s_linear_infinite]" />
-      <span className="absolute left-1/2 top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-portal-green shadow-[0_0_16px_currentColor]" />
-    </span>
+      width={40}
+      height={40}
+      className="h-10 w-10 object-contain drop-shadow-[0_0_18px_rgba(57,231,95,0.18)]"
+    />
   )
 }
 
@@ -85,7 +86,7 @@ const sections = [
     to: '/locations',
     title: 'Locations',
     description: 'Explore planets, dimensions, and realities',
-    icon: <PortalGlyph />,
+    icon: <LocationGlyph />,
     accent: 'portal-green',
     hoverBorder: 'hover:border-portal-green/30',
     hoverShadow: 'hover:shadow-[0_0_30px_rgba(57,231,95,0.1)]',
