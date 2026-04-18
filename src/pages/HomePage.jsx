@@ -1,4 +1,4 @@
-import TransitionLink from '../components/TransitionLink'
+import { Link } from 'react-router-dom'
 import { getCharacters, getEpisodes, getLocations } from '../services/api'
 import useFetch from '../hooks/useFetch'
 import usePageMeta from '../hooks/usePageMeta'
@@ -123,7 +123,7 @@ const sections = [
 export default function HomePage() {
   usePageMeta({
     description:
-      'Browse characters, episodes, locations, and quizzes from the Rick and Morty multiverse with fast search and cinematic page transitions.',
+      'Browse characters, episodes, locations, and quizzes from the Rick and Morty multiverse with fast search and deep links.',
   })
 
   const { data: stats, loading: statsLoading, error: statsError } = useFetch(async (signal) => {
@@ -186,7 +186,7 @@ export default function HomePage() {
               aria-live="polite"
               className={`mt-3 h-5 text-xs ${statsError ? 'text-dead/80' : 'text-gray-500'}`}
             >
-              {statsError ? `Live stats unavailable: ${statsError}` : statsLoading ? 'Refreshing live multiverse stats...' : 'Live stats loaded.'}
+              {statsError ? `Live stats unavailable: ${statsError}` : statsLoading ? 'Refreshing live multiverse stats…' : 'Live stats loaded.'}
             </p>
           </div>
         </section>
@@ -201,10 +201,9 @@ export default function HomePage() {
           </h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {sections.map((s, i) => (
-              <TransitionLink
+              <Link
                 key={s.to}
                 to={s.to}
-                types={['nav-forward']}
                 className={`animate-card-enter group relative overflow-hidden rounded-xl border border-border-glass bg-surface-glass p-7 backdrop-blur-sm transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 ${s.hoverBorder} ${s.hoverShadow} focus-visible:ring-2 focus-visible:ring-electric-blue focus-visible:outline-none`}
                 style={{ animationDelay: `${200 + i * 100}ms` }}
               >
@@ -214,7 +213,7 @@ export default function HomePage() {
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-gray-400">{s.description}</p>
                 <div className={`absolute -bottom-1 -right-1 h-24 w-24 rounded-full blur-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100 ${s.glowClass}`} />
-              </TransitionLink>
+              </Link>
             ))}
           </div>
         </section>

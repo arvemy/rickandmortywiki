@@ -30,49 +30,48 @@ function getOptionLabel(question, key) {
   return question.options.find(option => option.key === key)?.label ?? 'No answer'
 }
 
-function StartQuizModal({ onStart }) {
+function scrollToPageTop() {
+  const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches ?? false
+  window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' })
+}
+
+function StartQuizIntro({ onStart }) {
   return (
-    <div className="fixed inset-0 z-40 flex items-center justify-center px-4 py-8">
-      <div className="absolute inset-0 bg-dark-950/80 backdrop-blur-sm" />
-      <section
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="start-quiz-title"
-        aria-describedby="start-quiz-description"
-        className="relative z-10 w-full max-w-lg overflow-hidden rounded-xl border border-border-glass bg-dark-900/95 p-6 text-center shadow-[0_0_44px_rgba(56,189,248,0.14)] sm:p-8"
-      >
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-portal-green/70 to-transparent" />
-        <p className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-portal-green">Ready?</p>
-        <h2 id="start-quiz-title" className="mt-3 font-display text-3xl font-bold tracking-tight text-gray-100">
-          Start the Rick and Morty Quiz
-        </h2>
-        <p id="start-quiz-description" className="mt-4 text-sm leading-relaxed text-gray-400">
-          You will get 10 random multiple-choice questions. Answers stay locked away until the end.
-        </p>
-        <div className="mt-6 grid grid-cols-3 gap-3 text-center">
-          <div className="rounded-lg border border-border-glass bg-surface-glass px-3 py-3">
-            <div className="font-display text-xl font-bold text-portal-green">{QUIZ_SIZE}</div>
-            <div className="mt-1 text-[10px] uppercase tracking-[0.16em] text-gray-500">Questions</div>
-          </div>
-          <div className="rounded-lg border border-border-glass bg-surface-glass px-3 py-3">
-            <div className="font-display text-xl font-bold text-electric-blue">{quizQuestions.length}</div>
-            <div className="mt-1 text-[10px] uppercase tracking-[0.16em] text-gray-500">In Bank</div>
-          </div>
-          <div className="rounded-lg border border-border-glass bg-surface-glass px-3 py-3">
-            <div className="font-display text-xl font-bold text-accent-amber">1</div>
-            <div className="mt-1 text-[10px] uppercase tracking-[0.16em] text-gray-500">Attempt</div>
-          </div>
+    <section
+      aria-labelledby="start-quiz-title"
+      aria-describedby="start-quiz-description"
+      className="relative overflow-hidden rounded-xl border border-border-glass bg-dark-900/80 p-6 text-center backdrop-blur-sm sm:p-8"
+    >
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-portal-green/70 to-transparent" />
+      <p className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-portal-green">Ready?</p>
+      <h2 id="start-quiz-title" className="mt-3 font-display text-3xl font-bold tracking-tight text-gray-100">
+        Start the Rick and Morty Quiz
+      </h2>
+      <p id="start-quiz-description" className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-gray-400">
+        You will get 10 random multiple-choice questions. Answers stay locked away until the end.
+      </p>
+      <div className="mx-auto mt-6 grid max-w-lg grid-cols-3 gap-3 text-center">
+        <div className="rounded-lg border border-border-glass bg-surface-glass px-3 py-3">
+          <div className="font-display text-xl font-bold text-portal-green">{QUIZ_SIZE}</div>
+          <div className="mt-1 text-[10px] uppercase tracking-[0.16em] text-gray-500">Questions</div>
         </div>
-        <button
-          type="button"
-          onClick={onStart}
-          autoFocus
-          className="mt-7 w-full rounded-lg border border-portal-green/40 bg-portal-green/10 px-6 py-3 font-display text-sm font-semibold text-portal-green transition-[border-color,background-color,box-shadow] hover:border-portal-green/70 hover:bg-portal-green/15 hover:shadow-[0_0_24px_rgba(57,231,95,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue sm:w-auto"
-        >
-          Start Quiz
-        </button>
-      </section>
-    </div>
+        <div className="rounded-lg border border-border-glass bg-surface-glass px-3 py-3">
+          <div className="font-display text-xl font-bold text-electric-blue">{quizQuestions.length}</div>
+          <div className="mt-1 text-[10px] uppercase tracking-[0.16em] text-gray-500">In Bank</div>
+        </div>
+        <div className="rounded-lg border border-border-glass bg-surface-glass px-3 py-3">
+          <div className="font-display text-xl font-bold text-accent-amber">1</div>
+          <div className="mt-1 text-[10px] uppercase tracking-[0.16em] text-gray-500">Attempt</div>
+        </div>
+      </div>
+      <button
+        type="button"
+        onClick={onStart}
+        className="mt-7 w-full rounded-lg border border-portal-green/40 bg-portal-green/10 px-6 py-3 font-display text-sm font-semibold text-portal-green transition-[border-color,background-color,box-shadow] hover:border-portal-green/70 hover:bg-portal-green/15 hover:shadow-[0_0_24px_rgba(57,231,95,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue sm:w-auto"
+      >
+        Start Quiz
+      </button>
+    </section>
   )
 }
 
@@ -120,7 +119,7 @@ export default function QuizPage() {
 
     if (isLastQuestion) {
       setSubmitted(true)
-      window.scrollTo({ top: 0, behavior: 'smooth' })
+      scrollToPageTop()
       return
     }
 
@@ -133,7 +132,7 @@ export default function QuizPage() {
     setAnswers({})
     setSubmitted(false)
     setHasStarted(true)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    scrollToPageTop()
   }
 
   if (!hasStarted) {
@@ -149,9 +148,11 @@ export default function QuizPage() {
           </p>
         </section>
 
+        <StartQuizIntro onStart={handleStartQuiz} />
+
         <section
           aria-hidden="true"
-          className="relative overflow-hidden rounded-xl border border-border-glass bg-surface-glass p-5 opacity-45 blur-[1px] backdrop-blur-sm sm:p-7"
+          className="relative mt-8 overflow-hidden rounded-xl border border-border-glass bg-surface-glass p-5 opacity-45 blur-[1px] backdrop-blur-sm sm:p-7"
         >
           <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-electric-blue/60 to-transparent" />
           <p className="font-display text-xs font-semibold uppercase tracking-[0.18em] text-electric-blue">
@@ -172,8 +173,6 @@ export default function QuizPage() {
             ))}
           </div>
         </section>
-
-        <StartQuizModal onStart={handleStartQuiz} />
       </div>
     )
   }

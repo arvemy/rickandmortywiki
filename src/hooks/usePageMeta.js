@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 const SITE_NAME = 'Rick and Morty Wiki'
 const DEFAULT_DESCRIPTION =
-  'Explore characters, episodes, and locations from the Rick and Morty multiverse with fast search, deep links, and animated transitions.'
+  'Explore characters, episodes, and locations from the Rick and Morty multiverse with fast search and deep links.'
 
 function setMeta(attribute, key, content) {
   let tag = document.head.querySelector(`meta[${attribute}="${key}"]`)

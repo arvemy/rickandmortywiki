@@ -1,7 +1,6 @@
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { getEpisodeById, getCharactersByIds, extractIds } from '../services/api'
 import useFetch from '../hooks/useFetch'
-import TransitionLink from '../components/TransitionLink'
 import LoadingSpinner from '../components/LoadingSpinner'
 import ErrorMessage from '../components/ErrorMessage'
 import CharacterMiniCard from '../components/CharacterMiniCard'
@@ -40,16 +39,15 @@ function EpisodeDetail({ data }) {
 
   return (
     <>
-      <TransitionLink
+      <Link
         to="/episodes"
-        types={['nav-back']}
         className="mb-6 inline-flex items-center gap-1.5 rounded-lg border border-border-glass bg-surface-glass px-3 py-1.5 text-sm text-gray-400 backdrop-blur-sm transition-[border-color,color] hover:border-electric-blue/30 hover:text-electric-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue"
       >
         <svg viewBox="0 0 20 20" fill="currentColor" className="h-3.5 w-3.5" aria-hidden="true">
           <path fillRule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clipRule="evenodd" />
         </svg>
         Episodes
-      </TransitionLink>
+      </Link>
 
       <div className="relative overflow-hidden rounded-xl border border-border-glass bg-surface-glass p-6 backdrop-blur-sm">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(56,189,248,0.06)_0%,transparent_60%)]" />
