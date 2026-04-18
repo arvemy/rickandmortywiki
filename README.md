@@ -1,32 +1,48 @@
 # Rick and Morty Wiki
 
-A responsive Rick and Morty wiki built with React, Vite, Tailwind CSS, and React Router. The app uses live data from The Rick and Morty API to browse characters, episodes, and locations with search, filtering, pagination, and detail pages.
+A responsive Rick and Morty wiki built with React, Vite, Tailwind CSS, and React Router. It uses live data from [The Rick and Morty API](https://rickandmortyapi.com/) to browse characters, episodes, and locations, plus a local question bank for a 10-question quiz.
 
 Live app: https://rickandmortywiki-rose.vercel.app/
 
 ## Features
 
-- Home page with a short introduction and fast navigation into the main sections.
-- Characters, episodes, and locations listing pages.
-- Detail pages for characters, episodes, and locations with related API data.
-- Search and filter controls that update the route state reactively.
-- Loading, error, empty-state, and retry handling.
-- Responsive layouts, custom typography, and animated transitions.
-- Route-aware metadata updates for title, description, and canonical URL.
+- Browse characters, episodes, and locations from the Rick and Morty multiverse.
+- Open detail pages with related data, including character episode appearances, episode casts, and location residents.
+- Search characters, episodes, and locations with URL-backed query state.
+- Filter characters by status and gender.
+- Take a 10-question random quiz and review answers after submitting.
+- View live home-page stats from the API with fallback values when the request fails.
+- Navigate with responsive layouts, mobile navigation, animated transitions, and route-aware metadata.
+- See loading, error, empty-state, retry, and 404 screens.
 
 ## Tech Stack
 
 - React 19
-- Vite
-- React Router
+- Vite 8
+- React Router 7
 - Tailwind CSS 4
+- ESLint 9
 - The Rick and Morty API
-- wsrv.nl for image optimization
+- wsrv.nl image optimization
+
+## Requirements
+
+- Node.js 20 or newer
+- npm
+
+No environment variables are required.
 
 ## Getting Started
 
+Install dependencies:
+
 ```bash
 npm install
+```
+
+Start the development server:
+
+```bash
 npm run dev
 ```
 
@@ -39,14 +55,36 @@ Then open `http://localhost:5173`.
 - `npm run preview` previews the production build locally.
 - `npm run lint` runs ESLint across the project.
 
+## Routes
+
+- `/` home page with live multiverse stats and section links.
+- `/characters` searchable and filterable character index.
+- `/characters/:id` character profile with origin, last known location, and episode appearances.
+- `/episodes` searchable episode index grouped by season.
+- `/episodes/:id` episode detail page with the character roster.
+- `/locations` searchable location index.
+- `/locations/:id` location detail page with known residents.
+- `/quiz` random 10-question quiz.
+
 ## Project Structure
 
-- `src/components` reusable UI components.
-- `src/pages` route-level screens.
-- `src/services` API and media helpers.
-- `src/hooks` data-fetching and metadata hooks.
-- `public` static files and fonts.
+```text
+src/
+  assets/       Image and SVG assets used by the UI
+  components/   Reusable UI components
+  data/         Local quiz question bank
+  hooks/        Data-fetching and page metadata hooks
+  pages/        Route-level screens
+  services/     API and media helper functions
+  utils/        Formatting helpers
+public/
+  fonts/        Self-hosted font files
+```
 
-## API
+## API and Images
 
-Data is fetched from [The Rick and Morty API](https://rickandmortyapi.com/). Images are resized and converted through `wsrv.nl` before rendering.
+Data is fetched from [The Rick and Morty API](https://rickandmortyapi.com/). Character images are proxied through `wsrv.nl` for resizing and WebP conversion before rendering.
+
+## Deployment
+
+The project is configured for Vercel. `vercel.json` rewrites all routes to `index.html` so React Router can handle direct visits to client-side routes.
