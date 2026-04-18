@@ -304,30 +304,7 @@ body::after {
   z-index: 100;
 }
 ::view-transition-old(site-header) { display: none; }
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-
-  ::view-transition-old(*),
-  ::view-transition-new(*),
-  ::view-transition-group(*) {
-    animation-duration: 0s !important;
-    animation-delay: 0s !important;
-  }
-}
 ::view-transition-new(site-header) { animation: none; }
-
-::view-transition-group(site-footer) {
-  animation: none;
-  z-index: 100;
-}
 
 /* ── Reduced motion ── */
 

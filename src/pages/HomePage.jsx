@@ -5,6 +5,7 @@ import usePageMeta from '../hooks/usePageMeta'
 import charactersIcon from '../assets/characters.svg'
 import episodesIcon from '../assets/episodes.svg'
 import locationsIcon from '../assets/locations.png'
+import quizIcon from '../assets/quiz.png'
 import rickAndMortyWikiLogo from '../assets/rickandmortywiki.webp'
 import { formatNumber } from '../utils/formatters'
 
@@ -61,12 +62,14 @@ function LocationGlyph() {
 
 function QuizGlyph() {
   return (
-    <span
+    <img
+      src={quizIcon}
+      alt=""
       aria-hidden="true"
-      className="flex h-10 w-10 items-center justify-center rounded-lg border border-electric-blue/25 bg-electric-blue/10 font-display text-sm font-bold text-electric-blue shadow-[0_0_18px_rgba(56,189,248,0.14)]"
-    >
-      10
-    </span>
+      width={40}
+      height={40}
+      className="h-10 w-10 object-contain drop-shadow-[0_0_18px_rgba(56,189,248,0.18)]"
+    />
   )
 }
 
@@ -141,7 +144,7 @@ export default function HomePage() {
   return (
     <div>
         {/* Hero */}
-        <section className="relative overflow-hidden px-4 py-24 text-center sm:py-32">
+        <section className="relative overflow-hidden px-4 py-12 text-center sm:py-16">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(57,231,95,0.08)_0%,transparent_50%)]" />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_60%_40%,rgba(56,189,248,0.05)_0%,transparent_50%)]" />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(57,231,95,0.04)_0%,transparent_30%)] animate-[portal-pulse_6s_ease-in-out_infinite]" />
@@ -156,14 +159,14 @@ export default function HomePage() {
             loading="eager"
             decoding="async"
             fetchPriority="high"
-            className="relative mx-auto w-full max-w-136 drop-shadow-[0_0_42px_rgba(190,255,0,0.18)] sm:max-w-152 lg:max-w-160"
+            className="relative mx-auto w-full max-w-96 drop-shadow-[0_0_42px_rgba(190,255,0,0.18)] sm:max-w-112 lg:max-w-120"
           />
-          <p className="relative mx-auto mt-5 max-w-xl text-base text-gray-400 sm:text-lg" style={{ textWrap: 'pretty' }}>
+          <p className="relative mx-auto mt-3 max-w-xl text-base text-gray-400 sm:text-lg" style={{ textWrap: 'pretty' }}>
             Your interdimensional guide to every character, episode, and location
             from the hit animated series.
           </p>
 
-          <div className="relative mx-auto mt-12 min-h-32 max-w-lg" aria-busy={statsLoading}>
+          <div className="relative mx-auto mt-6 min-h-28 max-w-lg" aria-busy={statsLoading}>
             <div className="grid grid-cols-3 gap-3 sm:gap-6">
               {statsItems.map((s, i) => (
                 <div
@@ -192,8 +195,8 @@ export default function HomePage() {
         <div className="mx-auto h-px max-w-xs bg-linear-to-r from-transparent via-portal-green/30 to-transparent" />
 
         {/* Section cards */}
-        <section className="mx-auto max-w-5xl px-4 py-16">
-          <h2 className="mb-10 text-center font-display text-2xl font-bold tracking-tight" style={{ textWrap: 'balance' }}>
+        <section className="mx-auto max-w-5xl px-4 py-10 sm:py-12">
+          <h2 className="mb-6 text-center font-display text-2xl font-bold tracking-tight" style={{ textWrap: 'balance' }}>
             Explore the Multiverse
           </h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

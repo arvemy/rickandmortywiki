@@ -17,7 +17,7 @@ export default function CharacterCard({ character, priority = false }) {
         <FallbackImage
           src={imageSrc}
           fallbackSrc={character.image}
-          alt={character.name}
+          alt=""
           width={300}
           height={300}
           sizes="(min-width: 1024px) 22rem, (min-width: 768px) 30vw, (min-width: 640px) 46vw, 100vw"
