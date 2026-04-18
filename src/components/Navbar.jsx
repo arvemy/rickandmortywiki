@@ -6,6 +6,7 @@ const links = [
   { to: '/characters', label: 'Characters' },
   { to: '/episodes', label: 'Episodes' },
   { to: '/locations', label: 'Locations' },
+  { to: '/quiz', label: 'Quiz' },
 ]
 
 export default function Navbar() {

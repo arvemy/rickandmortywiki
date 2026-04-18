@@ -59,6 +59,17 @@ function LocationGlyph() {
   )
 }
 
+function QuizGlyph() {
+  return (
+    <span
+      aria-hidden="true"
+      className="flex h-10 w-10 items-center justify-center rounded-lg border border-electric-blue/25 bg-electric-blue/10 font-display text-sm font-bold text-electric-blue shadow-[0_0_18px_rgba(56,189,248,0.14)]"
+    >
+      10
+    </span>
+  )
+}
+
 const sections = [
   {
     to: '/characters',
@@ -93,12 +104,23 @@ const sections = [
     hoverText: 'group-hover:text-portal-green',
     glowClass: 'bg-portal-green/5',
   },
+  {
+    to: '/quiz',
+    title: 'Quiz',
+    description: 'Answer 10 random questions from across the multiverse',
+    icon: <QuizGlyph />,
+    accent: 'electric-blue',
+    hoverBorder: 'hover:border-electric-blue/30',
+    hoverShadow: 'hover:shadow-[0_0_30px_rgba(56,189,248,0.1)]',
+    hoverText: 'group-hover:text-electric-blue',
+    glowClass: 'bg-electric-blue/5',
+  },
 ]
 
 export default function HomePage() {
   usePageMeta({
     description:
-      'Browse characters, episodes, and locations from the Rick and Morty multiverse with fast search and cinematic page transitions.',
+      'Browse characters, episodes, locations, and quizzes from the Rick and Morty multiverse with fast search and cinematic page transitions.',
   })
 
   const { data: stats, loading: statsLoading, error: statsError } = useFetch(async (signal) => {
@@ -174,7 +196,7 @@ export default function HomePage() {
           <h2 className="mb-10 text-center font-display text-2xl font-bold tracking-tight" style={{ textWrap: 'balance' }}>
             Explore the Multiverse
           </h2>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {sections.map((s, i) => (
               <TransitionLink
                 key={s.to}

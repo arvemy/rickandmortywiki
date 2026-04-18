@@ -17,6 +17,7 @@ const router = createBrowserRouter([
       { path: '/episodes/:id', lazy: () => import('./pages/EpisodeDetailPage').then(m => ({ Component: m.default })) },
       { path: '/locations', lazy: () => import('./pages/LocationsPage').then(m => ({ Component: m.default })) },
       { path: '/locations/:id', lazy: () => import('./pages/LocationDetailPage').then(m => ({ Component: m.default })) },
+      { path: '/quiz', lazy: () => import('./pages/QuizPage').then(m => ({ Component: m.default })) },
       { path: '*', lazy: () => import('./pages/NotFoundPage').then(m => ({ Component: m.default })) },
     ],
   },
