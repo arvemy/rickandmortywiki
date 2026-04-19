@@ -149,30 +149,6 @@ export default function QuizPage() {
         </section>
 
         <StartQuizIntro onStart={handleStartQuiz} />
-
-        <section
-          aria-hidden="true"
-          className="relative mt-8 overflow-hidden rounded-xl border border-border-glass bg-surface-glass p-5 opacity-45 blur-[1px] backdrop-blur-sm sm:p-7"
-        >
-          <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-electric-blue/60 to-transparent" />
-          <p className="font-display text-xs font-semibold uppercase tracking-[0.18em] text-electric-blue">
-            Question 1 of {QUIZ_SIZE}
-          </p>
-          <div className="mt-5 h-2 overflow-hidden rounded-full bg-dark-800">
-            <div className="h-full w-[10%] rounded-full bg-linear-to-r from-portal-green to-electric-blue" />
-          </div>
-          <div className="mt-8 h-8 max-w-2xl rounded bg-dark-800/80" />
-          <div className="mt-6 grid gap-3">
-            {['A', 'B', 'C', 'D'].map(key => (
-              <div key={key} className="flex min-h-16 items-center gap-4 rounded-lg border border-border-glass bg-dark-900/50 px-4 py-3">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded border border-border-glass bg-surface-glass font-display text-sm font-bold text-electric-blue">
-                  {key}
-                </span>
-                <span className="h-3 w-full max-w-sm rounded bg-dark-700/80" />
-              </div>
-            ))}
-          </div>
-        </section>
       </div>
     )
   }
