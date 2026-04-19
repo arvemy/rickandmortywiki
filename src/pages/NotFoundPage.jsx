@@ -25,11 +25,11 @@ export default function NotFoundPage() {
           </div>
         </div>
 
-        <p className="font-display text-xl font-semibold text-gray-200">Lost in another dimension?</p>
-        <p className="mt-2 text-sm text-gray-400">The page you&apos;re looking for doesn&apos;t exist.</p>
+        <p className="font-display text-xl font-semibold text-copy-soft">Lost in another dimension?</p>
+        <p className="mt-2 text-sm text-copy-muted">The page you&apos;re looking for doesn&apos;t exist.</p>
         <Link
           to="/"
-          className="mt-8 rounded-xl border border-border-glass bg-surface-glass px-6 py-3 font-display text-sm font-semibold text-gray-200 backdrop-blur-sm transition-[border-color,box-shadow,color] hover:border-portal-green/30 hover:shadow-[0_0_20px_rgba(57,231,95,0.1)] hover:text-portal-green focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue"
+          className="mt-8 rounded-xl border border-border-glass bg-surface-glass px-6 py-3 font-display text-sm font-semibold text-copy-soft backdrop-blur-sm transition-[border-color,box-shadow,color] hover:border-portal-green/30 hover:shadow-[0_0_20px_rgba(57,231,95,0.1)] hover:text-portal-green focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue"
         >
           Go Back Home
         </Link>

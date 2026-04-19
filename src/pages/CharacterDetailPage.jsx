@@ -53,7 +53,7 @@ function CharacterDetail({ data }) {
     <>
       <Link
         to="/characters"
-        className="mb-6 inline-flex items-center gap-1.5 rounded-lg border border-border-glass bg-surface-glass px-3 py-1.5 text-sm text-gray-400 backdrop-blur-sm transition-[border-color,color] hover:border-electric-blue/30 hover:text-electric-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue"
+        className="mb-6 inline-flex items-center gap-1.5 rounded-lg border border-border-glass bg-surface-glass px-3 py-1.5 text-sm text-copy-muted backdrop-blur-sm transition-[border-color,color] hover:border-electric-blue/30 hover:text-electric-blue focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue"
       >
         <svg viewBox="0 0 20 20" fill="currentColor" className="h-3.5 w-3.5" aria-hidden="true">
           <path fillRule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clipRule="evenodd" />
@@ -81,40 +81,40 @@ function CharacterDetail({ data }) {
 
           <dl className="mt-6 grid grid-cols-2 gap-4 text-sm">
             <div>
-              <dt className="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400">Species</dt>
-              <dd className="mt-1 text-gray-200">{formatLabel(character.species)}</dd>
+              <dt className="text-[10px] font-semibold uppercase tracking-[0.15em] text-copy-muted">Species</dt>
+              <dd className="mt-1 text-copy-soft">{formatLabel(character.species)}</dd>
             </div>
             <div>
-              <dt className="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400">Gender</dt>
-              <dd className="mt-1 text-gray-200">{formatLabel(character.gender)}</dd>
+              <dt className="text-[10px] font-semibold uppercase tracking-[0.15em] text-copy-muted">Gender</dt>
+              <dd className="mt-1 text-copy-soft">{formatLabel(character.gender)}</dd>
             </div>
             {character.type && (
               <div>
-                <dt className="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400">Type</dt>
-                <dd className="mt-1 text-gray-200">{formatLabel(character.type)}</dd>
+                <dt className="text-[10px] font-semibold uppercase tracking-[0.15em] text-copy-muted">Type</dt>
+                <dd className="mt-1 text-copy-soft">{formatLabel(character.type)}</dd>
               </div>
             )}
             <div>
-              <dt className="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400">Origin</dt>
+              <dt className="text-[10px] font-semibold uppercase tracking-[0.15em] text-copy-muted">Origin</dt>
               <dd className="mt-1">
                 {originId && character.origin.name !== 'unknown' ? (
                   <Link to={`/locations/${originId}`} className="text-electric-blue transition-colors hover:text-electric-blue-dim hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue rounded">
                     {formatLabel(character.origin.name)}
                   </Link>
                 ) : (
-                  <span className="text-gray-400">{formatLabel(character.origin.name)}</span>
+                  <span className="text-copy-muted">{formatLabel(character.origin.name)}</span>
                 )}
               </dd>
             </div>
             <div>
-              <dt className="text-[10px] font-semibold uppercase tracking-[0.15em] text-gray-400">Last Known Location</dt>
+              <dt className="text-[10px] font-semibold uppercase tracking-[0.15em] text-copy-muted">Last Known Location</dt>
               <dd className="mt-1">
                 {locationId && character.location.name !== 'unknown' ? (
                   <Link to={`/locations/${locationId}`} className="text-electric-blue transition-colors hover:text-electric-blue-dim hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-blue rounded">
                     {formatLabel(character.location.name)}
                   </Link>
                 ) : (
-                  <span className="text-gray-400">{formatLabel(character.location.name)}</span>
+                  <span className="text-copy-muted">{formatLabel(character.location.name)}</span>
                 )}
               </dd>
             </div>
@@ -124,7 +124,7 @@ function CharacterDetail({ data }) {
 
       <section className="mt-10">
         <h2 className="mb-5 font-display text-xl font-bold tracking-tight">
-          Episode Appearances <span className="text-gray-400">({formatNumber(episodes.length)})</span>
+          Episode Appearances <span className="text-copy-muted">({formatNumber(episodes.length)})</span>
         </h2>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {episodes.map((ep, i) => (
@@ -135,7 +135,7 @@ function CharacterDetail({ data }) {
               style={{ animationDelay: `${i * 30}ms` }}
             >
               <span className="font-display font-bold text-electric-blue">{ep.episode}</span>
-              <span className="ml-2 text-gray-300">{ep.name}</span>
+              <span className="ml-2 text-copy-soft">{ep.name}</span>
             </Link>
           ))}
         </div>

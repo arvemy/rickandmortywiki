@@ -161,7 +161,7 @@ export default function HomePage() {
             fetchPriority="high"
             className="relative mx-auto w-full max-w-96 drop-shadow-[0_0_42px_rgba(190,255,0,0.18)] sm:max-w-112 lg:max-w-120"
           />
-          <p className="relative mx-auto mt-3 max-w-xl text-base text-gray-400 sm:text-lg" style={{ textWrap: 'pretty' }}>
+          <p className="relative mx-auto mt-3 max-w-xl text-base text-copy-muted sm:text-lg" style={{ textWrap: 'pretty' }}>
             Your interdimensional guide to every character, episode, and location
             from the hit animated series.
           </p>
@@ -177,14 +177,14 @@ export default function HomePage() {
                   <div className={`font-display text-2xl font-bold tabular-nums sm:text-3xl ${s.color}`}>
                     {formatNumber(displayStats[s.key])}
                   </div>
-                  <div className="mt-1 text-[10px] uppercase tracking-[0.2em] text-gray-400">{s.label}</div>
+                  <div className="mt-1 text-[10px] uppercase tracking-[0.2em] text-copy-muted">{s.label}</div>
                 </div>
               ))}
             </div>
             <p
               role={statsError ? 'alert' : 'status'}
               aria-live="polite"
-              className={`mt-3 h-5 text-xs ${statsError ? 'text-dead/80' : 'text-gray-500'}`}
+              className={`mt-3 h-5 text-xs ${statsError ? 'text-dead/80' : 'text-copy-faint'}`}
             >
               {statsError ? `Live stats unavailable: ${statsError}` : statsLoading ? 'Refreshing live multiverse stats…' : 'Live stats loaded.'}
             </p>
@@ -207,11 +207,11 @@ export default function HomePage() {
                 className={`animate-card-enter group relative overflow-hidden rounded-xl border border-border-glass bg-surface-glass p-7 backdrop-blur-sm transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 ${s.hoverBorder} ${s.hoverShadow} focus-visible:ring-2 focus-visible:ring-electric-blue focus-visible:outline-none`}
                 style={{ animationDelay: `${200 + i * 100}ms` }}
               >
-                <div className={`text-gray-400 transition-colors duration-300 ${s.hoverText}`}>{s.icon}</div>
+                <div className={`text-copy-muted transition-colors duration-300 ${s.hoverText}`}>{s.icon}</div>
                 <h3 className={`mt-4 font-display text-xl font-bold ${s.hoverText}`}>
                   {s.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-gray-400">{s.description}</p>
+                <p className="mt-2 text-sm leading-relaxed text-copy-muted">{s.description}</p>
                 <div className={`absolute -bottom-1 -right-1 h-24 w-24 rounded-full blur-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100 ${s.glowClass}`} />
               </Link>
             ))}

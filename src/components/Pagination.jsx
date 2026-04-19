@@ -24,7 +24,7 @@ export default function Pagination({ page, pages, onPageChange }) {
         type="button"
         onClick={() => onPageChange(page - 1)}
         disabled={page <= 1}
-        className={`${btnBase} px-3 py-2 hover:border-electric-blue/30 hover:bg-dark-700`}
+        className={`${btnBase} px-3 py-2 hover:border-electric-blue/30 hover:bg-surface-hover`}
         aria-label="Previous page"
       >
         <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4" aria-hidden="true">
@@ -34,7 +34,7 @@ export default function Pagination({ page, pages, onPageChange }) {
 
       {getPageNumbers().map((item, i) =>
         item === '...' ? (
-          <span key={`dots-${i}`} className="px-2 text-sm text-gray-500">&hellip;</span>
+          <span key={`dots-${i}`} className="px-2 text-sm text-copy-faint">&hellip;</span>
         ) : (
           <button
             type="button"
@@ -44,7 +44,7 @@ export default function Pagination({ page, pages, onPageChange }) {
             className={`${btnBase} min-w-9 px-2.5 py-2 font-display font-semibold tabular-nums ${
               item === page
                 ? 'border-portal-green/40 bg-portal-green/10 text-portal-green shadow-[0_0_12px_rgba(57,231,95,0.1)]'
-                : 'text-gray-400 hover:border-electric-blue/30 hover:text-gray-200'
+                : 'text-copy-muted hover:border-electric-blue/30 hover:text-copy-soft'
             }`}
           >
             {item}
@@ -56,7 +56,7 @@ export default function Pagination({ page, pages, onPageChange }) {
         type="button"
         onClick={() => onPageChange(page + 1)}
         disabled={page >= pages}
-        className={`${btnBase} px-3 py-2 hover:border-electric-blue/30 hover:bg-dark-700`}
+        className={`${btnBase} px-3 py-2 hover:border-electric-blue/30 hover:bg-surface-hover`}
         aria-label="Next page"
       >
         <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4" aria-hidden="true">

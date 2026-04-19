@@ -6,7 +6,7 @@ export default function LoadingSpinner({ className = '' }) {
         <div className="absolute inset-4 rounded-full border-2 border-electric-blue/70 border-b-portal-green/90 animate-[spin-reverse_1.8s_linear_infinite]" />
         <div className="absolute left-1/2 top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-portal-green shadow-[0_0_20px_currentColor]" />
       </div>
-      <p className="mt-5 text-sm text-gray-400">Loading&hellip;</p>
+      <p className="mt-5 text-sm text-copy-muted">Loading&hellip;</p>
     </div>
   )
 }

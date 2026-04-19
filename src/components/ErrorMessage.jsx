@@ -28,7 +28,7 @@ export default function ErrorMessage({ message, onRetry }) {
           <button
             type="button"
             onClick={onRetry}
-            className="mt-5 rounded-lg border border-border-glass bg-surface-glass px-5 py-2 text-sm text-gray-200 backdrop-blur-sm transition-[border-color,background-color] hover:border-electric-blue/30 hover:bg-dark-700 focus-visible:ring-2 focus-visible:ring-electric-blue focus-visible:outline-none"
+            className="mt-5 rounded-lg border border-border-glass bg-surface-glass px-5 py-2 text-sm text-copy-soft backdrop-blur-sm transition-[border-color,background-color] hover:border-electric-blue/30 hover:bg-surface-hover focus-visible:ring-2 focus-visible:ring-electric-blue focus-visible:outline-none"
           >
             Try Again
           </button>

@@ -84,7 +84,7 @@ export default function EpisodesPage() {
           />
         ) : data ? (
           <>
-            <p className="mb-6 text-sm text-gray-400">{formatNumber(data.info.count)} episodes found</p>
+            <p className="mb-6 text-sm text-copy-muted">{formatNumber(data.info.count)} episodes found</p>
             {seasonGroups.map(([season, eps]) => (
               <div key={season} className="mb-8">
                 <h2 className="mb-3 font-display text-lg font-semibold tracking-tight text-electric-blue">{season}</h2>

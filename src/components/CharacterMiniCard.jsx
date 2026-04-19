@@ -24,7 +24,7 @@ export default function CharacterMiniCard({ character, priority = false }) {
           loading={priority ? 'eager' : 'lazy'}
           fetchPriority={priority ? 'high' : 'auto'}
         />
-        <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-dark-950/70 via-transparent to-transparent" />
+        <div className="pointer-events-none absolute inset-0 image-scrim-soft" />
       </div>
       <div className="p-2.5">
         <p className="truncate font-display text-sm font-medium group-hover:text-portal-green">{character.name}</p>

@@ -18,7 +18,7 @@ export default function App() {
       <ScrollToTop />
       <a
         href="#main-content"
-        className="sr-only focus-visible:not-sr-only focus-visible:absolute focus-visible:z-[100] focus-visible:bg-dark-800 focus-visible:px-4 focus-visible:py-2 focus-visible:text-portal-green"
+        className="sr-only focus-visible:not-sr-only focus-visible:absolute focus-visible:z-[100] focus-visible:bg-surface-solid focus-visible:px-4 focus-visible:py-2 focus-visible:text-portal-green"
       >
         Skip to main content
       </a>

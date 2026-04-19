@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" style="color-scheme: dark">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -10,6 +10,29 @@
     />
     <meta name="robots" content="index,follow" />
     <meta name="theme-color" content="#0a0a14" />
+    <script>
+      (() => {
+        const storageKey = 'rickandmortywiki-theme'
+        const root = document.documentElement
+        let theme
+
+        try {
+          const storedTheme = localStorage.getItem(storageKey)
+          if (storedTheme === 'light' || storedTheme === 'dark') {
+            theme = storedTheme
+          }
+        } catch {
+          // Keep the default dark theme when storage is unavailable.
+        }
+
+        if (!theme) {
+          theme = window.matchMedia?.('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+        }
+
+        root.dataset.theme = theme
+        root.style.colorScheme = theme
+      })()
+    </script>
     <meta property="og:site_name" content="Rick and Morty Wiki" />
     <meta property="og:title" content="Rick and Morty Wiki" />
     <meta

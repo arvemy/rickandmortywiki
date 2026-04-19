@@ -1,9 +1,9 @@
 import { formatLabel } from '../utils/formatters'
 
 const colors = {
-  Alive: 'bg-emerald-500/15 text-emerald-200',
-  Dead: 'bg-rose-500/15 text-rose-200',
-  unknown: 'bg-slate-500/20 text-slate-200',
+  Alive: 'bg-alive/15 text-alive',
+  Dead: 'bg-dead/15 text-dead',
+  unknown: 'bg-unknown-status/15 text-unknown-status',
 }
 
 export default function StatusBadge({ status }) {

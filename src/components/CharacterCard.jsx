@@ -25,15 +25,15 @@ export default function CharacterCard({ character, priority = false }) {
           loading={priority ? 'eager' : 'lazy'}
           fetchPriority={priority ? 'high' : 'auto'}
         />
-        <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-dark-950/80 via-transparent to-transparent" />
+        <div className="pointer-events-none absolute inset-0 image-scrim-strong" />
       </div>
       <div className="p-4">
-        <p className="truncate font-display text-base font-semibold text-gray-100 group-hover:text-portal-green">
+        <p className="truncate font-display text-base font-semibold text-copy group-hover:text-portal-green">
           {character.name}
         </p>
         <div className="mt-2 flex items-center gap-2">
           <StatusBadge status={character.status} />
-          <span className="text-sm text-gray-400">{formatLabel(character.species)}</span>
+          <span className="text-sm text-copy-muted">{formatLabel(character.species)}</span>
         </div>
       </div>
     </Link>

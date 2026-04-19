@@ -71,7 +71,7 @@ export default function CharactersPage() {
             value={status}
             onChange={e => updateParams({ status: e.target.value })}
             autoComplete="off"
-            className="rounded-lg border border-border-glass bg-surface-glass px-4 py-2.5 text-sm text-gray-100 backdrop-blur-sm transition-[border-color,box-shadow] focus:border-electric-blue/50 focus:shadow-[0_0_12px_rgba(56,189,248,0.1)] focus-visible:ring-2 focus-visible:ring-electric-blue focus-visible:outline-none"
+            className="rounded-lg border border-border-glass bg-surface-glass px-4 py-2.5 text-sm text-copy backdrop-blur-sm transition-[border-color,box-shadow] focus:border-electric-blue/50 focus:shadow-[0_0_12px_rgba(56,189,248,0.1)] focus-visible:ring-2 focus-visible:ring-electric-blue focus-visible:outline-none"
           >
             <option value="">All Statuses</option>
             {STATUS_OPTIONS.filter(Boolean).map(s => (
@@ -85,7 +85,7 @@ export default function CharactersPage() {
             value={gender}
             onChange={e => updateParams({ gender: e.target.value })}
             autoComplete="off"
-            className="rounded-lg border border-border-glass bg-surface-glass px-4 py-2.5 text-sm text-gray-100 backdrop-blur-sm transition-[border-color,box-shadow] focus:border-electric-blue/50 focus:shadow-[0_0_12px_rgba(56,189,248,0.1)] focus-visible:ring-2 focus-visible:ring-electric-blue focus-visible:outline-none"
+            className="rounded-lg border border-border-glass bg-surface-glass px-4 py-2.5 text-sm text-copy backdrop-blur-sm transition-[border-color,box-shadow] focus:border-electric-blue/50 focus:shadow-[0_0_12px_rgba(56,189,248,0.1)] focus-visible:ring-2 focus-visible:ring-electric-blue focus-visible:outline-none"
           >
             <option value="">All Genders</option>
             {GENDER_OPTIONS.filter(Boolean).map(g => (
@@ -104,7 +104,7 @@ export default function CharactersPage() {
           />
         ) : data ? (
           <>
-            <p className="mb-4 text-sm text-gray-400">{formatNumber(data.info.count)} characters found</p>
+            <p className="mb-4 text-sm text-copy-muted">{formatNumber(data.info.count)} characters found</p>
             <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {data.results.map((c, i) => (
                 <div key={c.id} className="animate-card-enter" style={{ animationDelay: `${i * 50}ms` }}>

@@ -68,7 +68,7 @@ export default function LocationsPage() {
           />
         ) : data ? (
           <>
-            <p className="mb-4 text-sm text-gray-400">{formatNumber(data.info.count)} locations found</p>
+            <p className="mb-4 text-sm text-copy-muted">{formatNumber(data.info.count)} locations found</p>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {data.results.map((loc, i) => (
                 <div key={loc.id} className="animate-card-enter" style={{ animationDelay: `${i * 50}ms` }}>
